@@ -5,7 +5,7 @@ import Order from '../models/Order.js';
 
 const router = express.Router();
 
-router.get('/callback', async (req, res) => {
+router.get('/payment', async (req, res) => {
   const { reference } = req.query;
 
   try {

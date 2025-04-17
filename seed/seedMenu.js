@@ -4,6 +4,8 @@ import MenuItem from '../models/MenuItem.js';
 
 const router = express.Router();
 
+
+
 router.post('/', async (req, res) => {
   try {
     const items = [
@@ -12,6 +14,7 @@ router.post('/', async (req, res) => {
       { name: 'Pizza (Large)', price: 3500 },
       { name: 'Fried Rice with Chicken', price: 1800 }
     ];
+    console.log('Seeding menu with items:', items);
     await MenuItem.insertMany(items);
     res.send('Menu seeded successfully.');
   } catch (err) {
