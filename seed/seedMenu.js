@@ -12,7 +12,8 @@ router.post('/', async (req, res) => {
       { name: 'Jollof Rice', price: 1500 },
       { name: 'Chicken Burger', price: 2000 },
       { name: 'Pizza (Large)', price: 3500 },
-      { name: 'Fried Rice with Chicken', price: 1800 }
+      { name: 'Fried Rice with Chicken', price: 1800 },
+      { name: 'Jollof Rice', price: 1500 },
     ];
     console.log('Seeding menu with items:', items);
     await MenuItem.insertMany(items);
