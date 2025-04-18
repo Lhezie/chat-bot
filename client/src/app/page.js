@@ -1,5 +1,6 @@
 // app/page.js
 import ChatBot from '../components/chatBot.jsx';
+import "./globals.css";
 
 export default function Home() {
   return (
