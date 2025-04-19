@@ -30,3 +30,66 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+
+/* Reset & Base Styles */
+/* globals.css */
+
+/* globals.css */
+
+/* globals.css */
+/* globals.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Geist', sans-serif;
+}
+
+.page-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.top-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+  font-size: 20px;
+  color: #111;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 600;
+  color: #e63946;
+}
+
+.hero-only {
+  background-image: url('/resturantbgphoto.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.content > * {
+  pointer-events: auto;
+}

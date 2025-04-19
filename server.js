@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import session from 'express-session';
 import mongoose from 'mongoose';
+import statsRoutes from './routes/statsRoutes.js';
+
+
 import dotenv from 'dotenv';
 
 import chatRoutes from './routes/chatRoutes.js';
@@ -65,6 +68,7 @@ app.use((req, res, next) => {
   
 app.use('/payment', paystackRoutes);
 app.use('/seedmenu', seedMenu);
+app.use('/stats', statsRoutes);
 
 app.get('/', (req, res) => {
   res.send('Restaurant ChatBot API is running');

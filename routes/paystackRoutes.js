@@ -18,11 +18,14 @@ router.get("/callback", async (req, res) => {
     );
     const data = verifyRes.data.data;
     const orderId = data.metadata?.orderId;
+
     if (data.status === "success" && orderId) {
       await Order.findByIdAndUpdate(orderId, { paid: true, status: "Paid" });
-      return res.send("Payment verified and order updated!");
+
+      // ✅ Redirect to frontend success page
+      return res.redirect(`${process.env.FRONTEND_URL}/payment-success`);
     } else {
-      return res.send("⚠️ Payment not successful.");
+      return res.redirect(`${process.env.FRONTEND_URL}/payment-failed`);
     }
   } catch (err) {
     console.error("Error verifying payment:", err.response?.data || err.message);
