@@ -1,4 +1,4 @@
-// seedMenu
+
 import express from 'express';
 import MenuItem from '../models/MenuItem.js';
 

@@ -1,4 +1,4 @@
-// src/app/layout.js
+
 import './globals.css';
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="no-tailwind">
         <div className="page-wrapper no-scroll">
-          {/* 🌟 Simple Header */}
+          {/* Header */}
           <header className="top-header">
             <div className="brand">LeezieBite 🍴</div>
           </header>

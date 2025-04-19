@@ -1,5 +1,4 @@
-// app/page.js
-// import PaymentSuccessPage from '@/components/payment-success.jsx';
+
 import Router from 'next/router.js';
 import ChatBot from '../components/chatBot.jsx';
 import "./globals.css";

@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
 
     const input = message.trim();
 
-    // STEP 1: Always show menu if user types '1'
+    //  Menu shows once user types "1"
     if (input === "1") {
       console.log("Fetching menu...");
       const menu = await MenuItem.find();
@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // ✅ STEP 2: Add item to order if input is number and menu exists
+    // Add the selected item to order if input is number and menu exists
     if (!isNaN(input) && session.menu && session.menu.length > 0) {
       const index = parseInt(input) - 1;
       const menu = session.menu;
@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
       }
     }
 
-    //  STEP 3: Show current order
+    //  Show current order
     if (input === "97") {
       if (!session.currentOrder.length) {
         return res.json({ reply: "🕳️ No current order." });
@@ -69,11 +69,13 @@ router.post("/", async (req, res) => {
       return res.json({ reply: ` Current Order:\n${list}` });
     }
 
-    // STEP 4: Checkout & create Paystack payment
+    // Checkout/Make payment via paystack 
     if (input === "99") {
       if (session.currentOrder.length === 0) {
         return res.json({
-          reply: "No order to place.\nType 1 to start a new order.",
+          reply: `Order placed!`, 
+          payUrl: paymentUrl,    
+          amount: total * 100     
         });
       }
 
@@ -116,7 +118,7 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // STEP 5: View order history
+    // View order history
     if (input === "98") {
       console.log(" Fetching order history...");
       const orders = await Order.find({ sessionId: session.deviceId });
@@ -129,7 +131,7 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // STEP 6: Cancel order
+    // Cancel order
     if (input === "0") {
       session.currentOrder = [];
       return res.json({ reply: " Your order has been cancelled." });
@@ -150,7 +152,7 @@ export default router;
 // const router = express.Router();
 
 // router.post('/', (req, res) => {
-//   console.log('✅ chatRoutes POST hit');
+//   console.log('chatRoutes POST hit');
 //   res.json({ reply: 'basic response from chatRoutes' });
 // });
 
